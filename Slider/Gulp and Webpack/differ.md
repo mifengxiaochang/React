@@ -17,7 +17,7 @@ Gulp 的定位是 Task Runner, 就是用来跑一个一个任务的。
 
 但是它没发解决的是 js module 的问题，是你写代码时候如何组织代码结构的问题.
 
----
+
 ## webpack
 之前大家可以用 require.js, sea.js 来 require dependency, 后来出了一个 webpack把所有的文件(css, image, js) 都用js来生成依赖，最后生成一个bundle呢？ 所以webpack 也叫做file bundler.
 
