@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="../react/build/react.min.js"></script>
+    <script src="../react/build/react-dom.min.js"></script>
+    <script src="babel.min.js"></script>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        class TextAjax extends React.Component{
+            constructor(props){
+            super(props);
+            this.state = {username:'',url:''};
+            }
+            componentDidMount(){
+                this.mounted = true;
+                $.get(this.props.source,function(result){
+                    var lastGist = result[0];
+                    if(this.mounted){
+                    this.setState({
+                        username:lastGist.owner.login,
+                        url:lastGist.html_url});
+                    }
+                }.bind(this) );
+            }
+        componentWillUnmount(){this.mounted=false;}
+        render()
+        {
+        return (
+        <div>
+            {this.state.username}'s last  is <a href={this.state.url}>here</a>
+        </div>
+        );
+        }
+        }
+
+        ReactDOM.render(
+        <TextAjax source="https://api.github.com/users/octocat/gists"></TextAjax>,document.body
+        );
+
+
+    </script>
+</body>
+</html>

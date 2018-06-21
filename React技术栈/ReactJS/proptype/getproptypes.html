@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="../react/build/react.min.js"></script>
+    <script src="../react/build/react-dom.min.js"></script>
+    <script src="babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var Test = React.createClass({
+        getDefaultProps:function(){
+        return {
+        test:"122"
+        };
+        },
+        propTypes:{
+            test:React.PropTypes.func.isRequired,
+        },
+        render:function(){
+        return <div></div>
+        }
+        });
+        var data=[123],test=123
+        var component = ReactDOM.render(
+        <Test />,
+        document.body
+        );
+    </script>
+</body>
+</html>

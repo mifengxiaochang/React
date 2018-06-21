@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="../react/build/react.min.js"></script>
+    <script src="../react/build/react-dom.min.js"></script>
+    <script src="babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+<script type="text/babel">
+    var Test = React.createClass({
+        /*--customPropType: function(props, propName, componentName) {
+            if (!/^[0-9]/.test(props[propName])) {
+            return new Error('Validation failed!');
+            }
+        }*/
+        propTypes: {
+            // required
+            requiredFunc: React.PropTypes.string.isRequired,
+        },
+        render:function(){
+            return  <div></div>
+        }
+    });
+    var data=123
+    var component = ReactDOM.render(
+    <Test requiredFunc={data}/>,
+    document.body
+    );
+    </script>
+</body>
+</html>
